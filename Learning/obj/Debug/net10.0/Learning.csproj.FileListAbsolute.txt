@@ -1,0 +1,14 @@
+/Users/julianxrenner/Documents/Learning/C# Learning/Learning/obj/Debug/net10.0/Learning.GeneratedMSBuildEditorConfig.editorconfig
+/Users/julianxrenner/Documents/Learning/C# Learning/Learning/obj/Debug/net10.0/Learning.AssemblyInfoInputs.cache
+/Users/julianxrenner/Documents/Learning/C# Learning/Learning/obj/Debug/net10.0/Learning.AssemblyInfo.cs
+/Users/julianxrenner/Documents/Learning/C# Learning/Learning/obj/Debug/net10.0/Learning.csproj.CoreCompileInputs.cache
+/Users/julianxrenner/Documents/Learning/C# Learning/Learning/bin/Debug/net10.0/Learning
+/Users/julianxrenner/Documents/Learning/C# Learning/Learning/bin/Debug/net10.0/Learning.deps.json
+/Users/julianxrenner/Documents/Learning/C# Learning/Learning/bin/Debug/net10.0/Learning.runtimeconfig.json
+/Users/julianxrenner/Documents/Learning/C# Learning/Learning/bin/Debug/net10.0/Learning.dll
+/Users/julianxrenner/Documents/Learning/C# Learning/Learning/bin/Debug/net10.0/Learning.pdb
+/Users/julianxrenner/Documents/Learning/C# Learning/Learning/obj/Debug/net10.0/Learning.dll
+/Users/julianxrenner/Documents/Learning/C# Learning/Learning/obj/Debug/net10.0/refint/Learning.dll
+/Users/julianxrenner/Documents/Learning/C# Learning/Learning/obj/Debug/net10.0/Learning.pdb
+/Users/julianxrenner/Documents/Learning/C# Learning/Learning/obj/Debug/net10.0/Learning.genruntimeconfig.cache
+/Users/julianxrenner/Documents/Learning/C# Learning/Learning/obj/Debug/net10.0/ref/Learning.dll
