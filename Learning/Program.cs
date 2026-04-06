@@ -1,16 +1,40 @@
-﻿Person person1 = new Person("Julian");
-Person person2 = new Person("Renenr");
+﻿House myHouse = new House(10000, 2000);
+House yourHouse = new House(5000, 2025);
 
-Console.WriteLine(person1.Name);
+Console.WriteLine(myHouse.YearBuilt);
+Console.WriteLine(myHouse.Size);
+Console.WriteLine(myHouse.CanBeSold());
+Console.WriteLine(yourHouse.CanBeSold());
 
-class Person
+class House 
 {
-
-  public Person(string name)
+  public House(int sizeInSquareFeet, int yearBuilt)
   {
-    Name = name;
+    Size = sizeInSquareFeet;
+    YearBuilt = yearBuilt;
   }
 
-  public string Name { get; set; }
+  public int Size { get; set; }
 
+  public int YearBuilt { get; set; }
+
+  private int HowOld()
+  {
+    DateTime todaysDate = DateTime.Now;
+    int thisYear = todaysDate.Year;
+    int houseAge = thisYear - YearBuilt;
+    return houseAge;
+  }
+
+  public bool CanBeSold()
+  {
+    if (HowOld() > 15)
+    {
+      return true;
+    }
+    else
+    {
+      return false;
+    }
+  }
 }
