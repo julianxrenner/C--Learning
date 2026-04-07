@@ -1,40 +1,24 @@
-﻿House myHouse = new House(10000, 2000);
-House yourHouse = new House(5000, 2025);
+﻿
 
-Console.WriteLine(myHouse.YearBuilt);
-Console.WriteLine(myHouse.Size);
-Console.WriteLine(myHouse.CanBeSold());
-Console.WriteLine(yourHouse.CanBeSold());
+Account myAccount = new Account(123, 21);
+Console.WriteLine(myAccount.Balance);
 
-class House 
+myAccount.DepositMoney(50);
+Console.WriteLine(myAccount.Balance);
+
+class Account
 {
-  public House(int sizeInSquareFeet, int yearBuilt)
+  public int IdentificationNumber { get; set; }
+  public decimal Balance { get; set; }
+  public Account(int identificationNumber, decimal balance)
   {
-    Size = sizeInSquareFeet;
-    YearBuilt = yearBuilt;
+    IdentificationNumber = identificationNumber;
+    Balance = balance;
   }
 
-  public int Size { get; set; }
-
-  public int YearBuilt { get; set; }
-
-  private int HowOld()
+  public void DepositMoney(decimal depositAmount)
   {
-    DateTime todaysDate = DateTime.Now;
-    int thisYear = todaysDate.Year;
-    int houseAge = thisYear - YearBuilt;
-    return houseAge;
+    Balance += depositAmount;
   }
 
-  public bool CanBeSold()
-  {
-    if (HowOld() > 15)
-    {
-      return true;
-    }
-    else
-    {
-      return false;
-    }
-  }
 }
