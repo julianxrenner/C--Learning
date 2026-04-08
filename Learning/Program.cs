@@ -24,7 +24,7 @@ class Account
 
   public bool IsPremium { get; set; }
 
-  private decimal InterestRate { get; set; }
+  public decimal InterestRate { get; }
   public Account(int identificationNumber, decimal balance, bool isPremium)
   {
     IdentificationNumber = identificationNumber;
@@ -42,13 +42,17 @@ class Account
     Balance += Balance * InterestRate;
   }
 
+  private void CheckIfTransferIsValid(decimal transferAmount, Account receivingAccount)
+  {
+    if(receivingAccount == null)
+      throw new ArgumentNullException(nameof(receivingAccount), "Receiving account does not exist");
+    if (Balance < transferAmount)
+      throw new InvalidOperationException("Insufficient funds in sending account");
+  }
+
   public void TransferMoney(decimal transferAmount, Account receivingAccount)
   {
-    if (Balance < transferAmount || receivingAccount == null)
-    {
-      Console.WriteLine("Invalid arguments");
-      return;
-    }
+    CheckIfTransferIsValid(transferAmount, receivingAccount);
     Balance -= transferAmount;
     receivingAccount.DepositMoney(transferAmount);
   }
