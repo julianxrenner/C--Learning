@@ -1,34 +1,68 @@
-﻿using System.Diagnostics.Contracts;
+﻿
+List<Race> calendar = new List<Race>();
 
-House myHouse = new House(10000, 2023);
+DateTime firstRaceDate = new DateTime(2025, 4, 25);
+DateTime secondRaceDate = new DateTime(2025, 5, 5);
+DateTime thirdRaceDate = new DateTime(2025, 5, 15);
 
-Console.WriteLine(myHouse.ConstructionYear);
-Console.WriteLine(myHouse.SquareFootage);
-Console.WriteLine(myHouse.HowOld());
-Console.WriteLine(myHouse.CanBeSold());
+Race firstRace = new Race("America Race", firstRaceDate, "Miami Circuit");
+Race secondRace = new Race("Asia Race", secondRaceDate, "Suzuka");
+Race thirdRace = new Race("Middle East Race", thirdRaceDate, "Bahrain International Circuit");
 
-House myOtherHouse = new House(10000, 2010);
+calendar.Add(firstRace);
+calendar.Add(secondRace);
+calendar.Add(thirdRace);
 
-Console.WriteLine(myOtherHouse.CanBeSold());
-
-class House 
+foreach(var race in calendar)
 {
-  public House(int squareFootage, int constructionYear)
+  Console.WriteLine($"{race.Name} will be hosted at {race.TrackName} on the date of {race.Date}");
+}
+
+Driver driver1 = new Driver("Verstappen");
+firstRace.AddDriverToRaceGrid(driver1);
+firstRace.AddDriverToRaceGrid(driver1);
+
+foreach(var driver in firstRace.StartingGrid)
+{
+  Console.WriteLine($"{driver.Name} is in {firstRace.Name}");
+}
+
+class Race
+{
+  public string Name { get; set; }
+
+  public string TrackName { get; set; }
+
+  public DateTime Date { get; set; }
+
+  public List<Driver> StartingGrid {get; private set;}= new List<Driver>();
+  public Race(string name, DateTime date, string trackName)
   {
-    SquareFootage = squareFootage;
-    ConstructionYear = constructionYear;
+    Name = name;
+    Date = date;
+    TrackName = trackName;
   }
 
-  public int SquareFootage { get; set; }
-
-  public int ConstructionYear { get; set; }
-
-  public int HowOld() 
+  public void AddDriverToRaceGrid(Driver driver)
   {
-    return 2026-ConstructionYear;
+    if (StartingGrid.Count < 20 && !StartingGrid.Contains(driver))
+    {
+      StartingGrid.Add(driver);
+      Console.WriteLine("Driver Successfully Added to Race");
+    }
+    else
+    {
+      Console.WriteLine("Race is full or the driver has already been added");
+    }
   }
-  public bool CanBeSold()
+}
+
+class Driver
+{
+
+  public string Name { get; set; }
+  public Driver(string name)
   {
-    return 2026 - ConstructionYear > 15;
+    Name = name;
   }
 }
