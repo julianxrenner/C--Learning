@@ -1,60 +1,34 @@
-﻿
+﻿using System.Diagnostics.Contracts;
 
-Account regularAccount = new Account(123, 210, false);
-Account premiumAccount = new Account(456, 210, true);
+House myHouse = new House(10000, 2023);
 
-Console.WriteLine($"Regular Checking Account: {regularAccount.Balance}");
-Console.WriteLine($"Premium Checking Account: {premiumAccount.Balance}");
+Console.WriteLine(myHouse.ConstructionYear);
+Console.WriteLine(myHouse.SquareFootage);
+Console.WriteLine(myHouse.HowOld());
+Console.WriteLine(myHouse.CanBeSold());
 
-regularAccount.AddInterest();
-premiumAccount.AddInterest();
+House myOtherHouse = new House(10000, 2010);
 
-Console.WriteLine($"Regular Checking Account After Interest: {regularAccount.Balance}");
-Console.WriteLine($"Premium Checking Account After Interest: {premiumAccount.Balance}");
+Console.WriteLine(myOtherHouse.CanBeSold());
 
-regularAccount.TransferMoney(200m, premiumAccount);
-
-Console.WriteLine($"Regular Checking Account After Transfer: {regularAccount.Balance}");
-Console.WriteLine($"Premium Checking Account After Transfer: {premiumAccount.Balance}");
-
-class Account
+class House 
 {
-  public int IdentificationNumber { get; set; }
-  public decimal Balance { get; set; }
-
-  public bool IsPremium { get; set; }
-
-  public decimal InterestRate { get; }
-  public Account(int identificationNumber, decimal balance, bool isPremium)
+  public House(int squareFootage, int constructionYear)
   {
-    IdentificationNumber = identificationNumber;
-    Balance = balance;
-    IsPremium = isPremium;
-    InterestRate = isPremium ? 0.03m : 0.02m;
+    SquareFootage = squareFootage;
+    ConstructionYear = constructionYear;
   }
 
-  public void DepositMoney(decimal depositAmount)
-  {
-    Balance += depositAmount;
-  }
-  public void AddInterest()
-  {
-    Balance += Balance * InterestRate;
-  }
+  public int SquareFootage { get; set; }
 
-  private void CheckIfTransferIsValid(decimal transferAmount, Account receivingAccount)
-  {
-    if(receivingAccount == null)
-      throw new ArgumentNullException(nameof(receivingAccount), "Receiving account does not exist");
-    if (Balance < transferAmount)
-      throw new InvalidOperationException("Insufficient funds in sending account");
-  }
+  public int ConstructionYear { get; set; }
 
-  public void TransferMoney(decimal transferAmount, Account receivingAccount)
+  public int HowOld() 
   {
-    CheckIfTransferIsValid(transferAmount, receivingAccount);
-    Balance -= transferAmount;
-    receivingAccount.DepositMoney(transferAmount);
+    return 2026-ConstructionYear;
   }
-
+  public bool CanBeSold()
+  {
+    return 2026 - ConstructionYear > 15;
+  }
 }
