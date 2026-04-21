@@ -19,8 +19,12 @@ foreach(var race in calendar)
 }
 
 Driver driver1 = new Driver("Verstappen");
+Driver driver2 = new Driver("Leclerc");
+
 firstRace.AddDriverToRaceGrid(driver1);
 firstRace.AddDriverToRaceGrid(driver1);
+firstRace.AddDriverToWaitingList(driver1);
+firstRace.AddDriverToWaitingList(driver2);
 
 foreach(var driver in firstRace.StartingGrid)
 {
@@ -36,6 +40,8 @@ class Race
   public DateTime Date { get; set; }
 
   public List<Driver> StartingGrid {get; private set;}= new List<Driver>();
+
+  public Queue<Driver> WaitingList { get; set; } = new Queue<Driver>();
   public Race(string name, DateTime date, string trackName)
   {
     Name = name;
@@ -52,9 +58,23 @@ class Race
     }
     else
     {
-      Console.WriteLine("Race is full or the driver has already been added");
+      Console.WriteLine("Race is full or the driver has already been added. Try adding to the wait list instead.");
     }
   }
+
+  public void AddDriverToWaitingList(Driver driver)
+  {
+    if(StartingGrid.Contains(driver))
+    {
+      Console.WriteLine("Driver is already in the race");
+    }
+    else
+    {
+      WaitingList.Enqueue(driver);
+      Console.WriteLine($"The driver {driver.Name} has been added to the waiting list");
+    }
+  }
+
 }
 
 class Driver
