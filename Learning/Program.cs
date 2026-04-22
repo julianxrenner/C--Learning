@@ -1,88 +1,27 @@
-﻿
-List<Race> calendar = new List<Race>();
+﻿//Practicing extention methods
 
-DateTime firstRaceDate = new DateTime(2025, 4, 25);
-DateTime secondRaceDate = new DateTime(2025, 5, 5);
-DateTime thirdRaceDate = new DateTime(2025, 5, 15);
-
-Race firstRace = new Race("America Race", firstRaceDate, "Miami Circuit");
-Race secondRace = new Race("Asia Race", secondRaceDate, "Suzuka");
-Race thirdRace = new Race("Middle East Race", thirdRaceDate, "Bahrain International Circuit");
-
-calendar.Add(firstRace);
-calendar.Add(secondRace);
-calendar.Add(thirdRace);
-
-foreach(var race in calendar)
+Person person1 = new Person("Julian", "Renner");
+string person1Initials = person1.GetInitials();
+Console.WriteLine($"{person1.FirstName}s initials are {person1Initials}");
+public class Person
 {
-  Console.WriteLine($"{race.Name} will be hosted at {race.TrackName} on the date of {race.Date}");
+  public string FirstName { get; set; }
+
+  public string LastName { get; set; }
+
+  public Person(string firstName, string lastName)
+  {
+    FirstName = firstName;
+    LastName = lastName;
+  }
 }
 
-Driver driver1 = new Driver("Verstappen");
-Driver driver2 = new Driver("Leclerc");
-
-firstRace.AddDriverToRaceGrid(driver1);
-firstRace.AddDriverToRaceGrid(driver1);
-firstRace.AddDriverToWaitingList(driver1);
-firstRace.AddDriverToWaitingList(driver2);
-
-foreach(var driver in firstRace.StartingGrid)
+public static class NameExtentions
 {
-  Console.WriteLine($"{driver.Name} is in {firstRace.Name}");
-}
-
-class Race
-{
-  public string Name { get; set; }
-
-  public string TrackName { get; set; }
-
-  public DateTime Date { get; set; }
-
-  public List<Driver> StartingGrid {get; private set;}= new List<Driver>();
-
-  public Queue<Driver> WaitingList { get; set; } = new Queue<Driver>();
-  public Race(string name, DateTime date, string trackName)
+  public static string GetInitials(this Person person)
   {
-    Name = name;
-    Date = date;
-    TrackName = trackName;
-  }
-
-  public void AddDriverToRaceGrid(Driver driver)
-  {
-    if (StartingGrid.Count < 20 && !StartingGrid.Contains(driver))
-    {
-      StartingGrid.Add(driver);
-      Console.WriteLine("Driver Successfully Added to Race");
-    }
-    else
-    {
-      Console.WriteLine("Race is full or the driver has already been added. Try adding to the wait list instead.");
-    }
-  }
-
-  public void AddDriverToWaitingList(Driver driver)
-  {
-    if(StartingGrid.Contains(driver))
-    {
-      Console.WriteLine("Driver is already in the race");
-    }
-    else
-    {
-      WaitingList.Enqueue(driver);
-      Console.WriteLine($"The driver {driver.Name} has been added to the waiting list");
-    }
-  }
-
-}
-
-class Driver
-{
-
-  public string Name { get; set; }
-  public Driver(string name)
-  {
-    Name = name;
+    char firstInitial = person.FirstName[0];
+    char secondInitial = person.LastName[0];
+    return $"{firstInitial}{secondInitial}";
   }
 }
