@@ -1,0 +1,12 @@
+/Users/julianxrenner/Documents/Learning/C# Learning/ClassLibraries.lib/bin/Debug/net10.0/ClassLibraries.lib.deps.json
+/Users/julianxrenner/Documents/Learning/C# Learning/ClassLibraries.lib/bin/Debug/net10.0/ClassLibraries.lib.dll
+/Users/julianxrenner/Documents/Learning/C# Learning/ClassLibraries.lib/bin/Debug/net10.0/ClassLibraries.lib.pdb
+/Users/julianxrenner/Documents/Learning/C# Learning/ClassLibraries.lib/obj/Debug/net10.0/ClassLibraries.lib.GeneratedMSBuildEditorConfig.editorconfig
+/Users/julianxrenner/Documents/Learning/C# Learning/ClassLibraries.lib/obj/Debug/net10.0/ClassLibraries.lib.AssemblyInfoInputs.cache
+/Users/julianxrenner/Documents/Learning/C# Learning/ClassLibraries.lib/obj/Debug/net10.0/ClassLibraries.lib.AssemblyInfo.cs
+/Users/julianxrenner/Documents/Learning/C# Learning/ClassLibraries.lib/obj/Debug/net10.0/ClassLibraries.lib.csproj.CoreCompileInputs.cache
+/Users/julianxrenner/Documents/Learning/C# Learning/ClassLibraries.lib/obj/Debug/net10.0/ClassLibraries.lib.sourcelink.json
+/Users/julianxrenner/Documents/Learning/C# Learning/ClassLibraries.lib/obj/Debug/net10.0/ClassLibraries.lib.dll
+/Users/julianxrenner/Documents/Learning/C# Learning/ClassLibraries.lib/obj/Debug/net10.0/refint/ClassLibraries.lib.dll
+/Users/julianxrenner/Documents/Learning/C# Learning/ClassLibraries.lib/obj/Debug/net10.0/ClassLibraries.lib.pdb
+/Users/julianxrenner/Documents/Learning/C# Learning/ClassLibraries.lib/obj/Debug/net10.0/ref/ClassLibraries.lib.dll
